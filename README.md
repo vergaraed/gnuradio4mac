@@ -1,3 +1,28 @@
+#gnuradio for Mac
+
+Here are some failures I encountered while building.
+
+- Linking wouldnt work using symbols for gsl (libgsl)
+-- Edited the build (auto-gen) after running cmake -NODOC and ...
+
+- this helped debug the issue
+-- ld -reexport-lgsl
+
+
+- upgrade to latest node
+-- brew update node. (takes a bit)
+-- Built target pygen_gr_channels_python_channels_86e7c
+[ 77%] Generating ui_spectrumdisplayform.h
+dyld: Library not loaded: /opt/local/lib/libicui18n.58.dylib
+  Referenced from: /opt/local/libexec/qt5/lib/QtCore.framework/Versions/5/QtCore
+  Reason: image not found
+/bin/sh: line 1: 43078 Abort trap: 6           /opt/local/libexec/qt5/bin/uic -o /Users/ed/dev/blockchainbpi/cryptreserve/tools/gnuradio-3.8.4.0/build/gr-qtgui/lib/ui_spectrumdisplayform.h /Users/ed/dev/blockchainbpi/cryptreserve/tools/gnuradio-3.8.4.0/gr-qtgui/lib/spectrumdisplayform.ui
+make[2]: *** [gr-qtgui/lib/ui_spectrumdisplayform.h] Error 134
+make[1]: *** [gr-qtgui/lib/CMakeFiles/gnuradio-qtgui.dir/all] Error 2
+
+
+
+
 <p align="center">
 <img src="https://github.com/gnuradio/gnuradio/blob/master/docs/gnuradio.png" width="75%" />
 </p>
